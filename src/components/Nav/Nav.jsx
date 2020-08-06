@@ -12,7 +12,6 @@ const Nav = () => {
             <NavLink
               exact
               to="/"
-              a
               className={styles.navLink}
               activeClassName={styles.navLinkActive}
             >
