@@ -1,11 +1,12 @@
 import React from 'react';
 
-import styles from './Map.module.scss';
+import { SVGMap } from 'react-svg-map';
+import World from '@svg-maps/world';
+
+import './Map.scss';
 
 const Map = () => {
-  return (
-    <p className={`${styles.big} ${styles.dark} big`}>This is a map</p>
-  );
+  return <SVGMap map={World}></SVGMap>;
 };
 
 export default Map;
