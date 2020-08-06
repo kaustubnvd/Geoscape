@@ -1,0 +1,28 @@
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  h1 {
+    margin: 1em;
+  }
+  .nav {
+    width: 10%;
+
+    ul {
+      display: flex;
+      justify-content: space-evenly;
+    }
+    li {
+      list-style: none;
+    }
+  }
+}
+
+.navLink {
+  text-decoration: none;
+  color: rgb(77, 130, 209);
+}
+
+.navLinkActive {
+  font-weight: 700;
+}

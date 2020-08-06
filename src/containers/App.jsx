@@ -1,15 +1,18 @@
 import React from 'react';
-import {BrowserRouter as Router, Route, Link} from 'react-router-dom';
+import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
 import './App.scss';
-import Map from '../components/Map/Map.jsx';
+
+import Nav from '../components/Nav/Nav.jsx';
+import WorldMap from '../components/Map/Map.jsx';
 
 export default class App extends React.Component {
-  state = {
-
-  };
+  state = {};
   render() {
     return (
-      <Map />
-    ); 
+      <Router>
+        <Nav />
+        <Route exact path="/" component={WorldMap} />
+      </Router>
+    );
   }
 }

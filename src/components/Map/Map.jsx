@@ -5,8 +5,8 @@ import World from '@svg-maps/world';
 
 import './Map.scss';
 
-const Map = () => {
-  return <SVGMap map={World}></SVGMap>;
+const WorldMap = () => {
+  return <SVGMap map={World} onLocationMouseOver={(event) => console.log(event.target.attributes.name.value)}></SVGMap>;
 };
 
-export default Map;
+export default WorldMap;
