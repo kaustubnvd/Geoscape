@@ -1,0 +1,46 @@
+@mixin flex-center {
+  display: flex;
+  align-items: center;
+}
+
+@mixin country-info {
+  @include flex-center();
+  span {
+    margin-left: .5em;
+  }
+}
+
+.main {
+
+  display: flex;
+  justify-content: space-evenly;
+  margin: 3em 0em;
+
+  section {
+      h1 {
+        font-size: 3rem;
+
+      }
+
+      .h2 {
+        @include country-info();
+      }
+
+      .list {
+        margin-top: 1em;
+      }
+
+      .list div {
+        @include country-info();
+      }
+
+      h2 ul {
+        padding-left: 3em;
+      }
+  }
+
+  img {
+    max-width: 600px;
+  }
+
+}

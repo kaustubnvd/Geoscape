@@ -1,11 +1,12 @@
 import React from 'react';
-import { Router, Route } from 'react-router-dom';
+import { Router, Route, Switch } from 'react-router-dom';
 import history from '../utils/history';
 import './App.scss';
 
 import Nav from '../components/Nav/Nav.jsx';
 import WorldMap from '../components/Map/Map.jsx';
 import Location from '../containers/Location/Location.jsx';
+import Search from '../containers/Search/Search.jsx';
 
 export default class App extends React.Component {
   state = {};
@@ -13,8 +14,11 @@ export default class App extends React.Component {
     return (
       <Router history={history}>
         <Nav />
-        <Route exact path="/" component={WorldMap} />
-        <Route path="/:country" component={Location}></Route>
+        <Switch>
+          <Route path="/" exact component={WorldMap} />
+          <Route path="/search" component={Search} />
+          <Route path="/:country" component={Location} />
+        </Switch>
       </Router>
     );
   }

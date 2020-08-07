@@ -1,11 +1,13 @@
 import React from 'react';
-import { NavLink } from 'react-router-dom';
+import { NavLink, Link } from 'react-router-dom';
 import styles from './Nav.module.scss';
 
 const Nav = () => {
   return (
     <header className={styles.header}>
-      <h1>Geoscape</h1>
+      <h1>
+        <Link to='/' className={styles.homeLink}>Geoscape</Link>
+      </h1>
       <nav className={styles.nav}>
         <ul>
           <li>
