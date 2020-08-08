@@ -1,5 +1,10 @@
 import React from 'react';
-import { FaMapMarkerAlt, FaMale, FaLanguage, FaMoneyBill } from 'react-icons/fa';
+import {
+  FaMapMarkerAlt,
+  FaMale,
+  FaLanguage,
+  FaMoneyBill,
+} from 'react-icons/fa';
 import PropTypes from 'prop-types';
 import ClipLoader from 'react-spinners/ClipLoader';
 
@@ -10,30 +15,40 @@ class Location extends React.Component {
   state = {
     country: this.props.match.params.country,
     countryData: null,
+    error: null,
   };
   static propTypes = {
     match: PropTypes.object.isRequired,
   };
   async componentDidMount() {
-    const { country } = this.state;
-    let countryData = await getCountryData(country);
-    console.log(countryData);
-    this.setState({
-      countryData,
-    });
+    try {
+      const { country } = this.state;
+      let countryData = await getCountryData(country);
+      this.setState({
+        countryData,
+      });
+    } catch (error) {
+      this.setState({
+        error: error.message,
+      });
+    }
   }
   render() {
-    const { countryData } = this.state;
-    if (!countryData) {
+    const { countryData, error } = this.state;
+    if (!countryData && !error) {
       return (
         <div className={styles.loading}>
           <ClipLoader size={150} color={'#123abc'} />
         </div>
       );
     }
+
+    if (error) {
+      return <h1 className={styles.error}>{error}</h1>;
+    }
+
     const { country } = this.state;
     const { capital, flag, languages, population, currencies } = countryData;
-    console.log(languages, currencies);
 
     return (
       <main className={styles.main}>
@@ -66,7 +81,9 @@ class Location extends React.Component {
             <ul>
               {currencies.map((currency) => (
                 <li key={currency.code}>
-                  {`${currency.name} ${currency.symbol ? `(${currency.symbol})` : ''}`}
+                  {`${currency.name} ${
+                    currency.symbol ? `(${currency.symbol})` : ''
+                  }`}
                 </li>
               ))}
             </ul>
