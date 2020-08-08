@@ -1,6 +1,7 @@
 import React from 'react';
 import { FaMapMarkerAlt, FaMale, FaLanguage, FaMoneyBill } from 'react-icons/fa';
 import PropTypes from 'prop-types';
+import ClipLoader from 'react-spinners/ClipLoader';
 
 import { getCountryData } from '../../api/api';
 import styles from './Location.module.scss';
@@ -24,7 +25,11 @@ class Location extends React.Component {
   render() {
     const { countryData } = this.state;
     if (!countryData) {
-      return <h2>Loading</h2>;
+      return (
+        <div className={styles.loading}>
+          <ClipLoader size={150} color={'#123abc'} />
+        </div>
+      );
     }
     const { country } = this.state;
     const { capital, flag, languages, population, currencies } = countryData;
