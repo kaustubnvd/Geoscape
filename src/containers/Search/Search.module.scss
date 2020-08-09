@@ -1,0 +1,25 @@
+.container {
+  display: flex;
+  justify-content: center;
+  .searchBar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 80%;
+    background-color: #FFF;
+    padding: 1.5em;
+    border: 2px solid rgba(77, 130, 209, 0.13);
+    border-radius: 50px;
+    input {
+      width: 100%;
+      border: none;
+      outline: none;
+      font-size: 1.5rem;
+    }
+  }
+}
+
+.results {
+  text-align: center;
+  font-size: 1.5rem;
+}

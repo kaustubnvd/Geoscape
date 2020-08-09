@@ -53,7 +53,7 @@ export function customCodes() {
     {
       code: 'TZ',
       name: 'Tanzania'
-    },
+    },  
     {
       code: 'RE',
       name: 'Reunion',

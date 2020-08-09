@@ -15,3 +15,13 @@ export async function getCountryData(country) {
   const data = await res.json();
   return data;
 }
+
+export async function getCountriesSearch(query) {
+  const endpoint = `https://restcountries.eu/rest/v2/name/${query}?fields=name;flag;alpha2Code`;
+  const res = await fetch(endpoint);
+  if (res.status === 404) {
+    throw new Error(`No Results found for ${query}`);
+  }
+  const data = await res.json();
+  return data;
+}
