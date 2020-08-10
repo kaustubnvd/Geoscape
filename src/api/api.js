@@ -8,7 +8,7 @@ export async function getCountryData(country) {
   const countryCode = countryList.getCode(country);
   // Country name doesn't correspond to a particular code
   if (!countryCode) {
-    throw new Error(`Unable to fetch country data for ${country}`);
+    throw new Error(`No country data found for ${country}`);
   }
   const endpoint = `https://restcountries.eu/rest/v2/alpha/${countryCode}?fields=capital;flag;languages;currencies;population`;
   const res = await fetch(endpoint);

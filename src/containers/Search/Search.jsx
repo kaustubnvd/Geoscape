@@ -1,7 +1,9 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import { FaSearch } from 'react-icons/fa';
 import queryString from 'query-string';
+import { getName } from 'country-list';
 import styles from './Search.module.scss';
 
 import { getCountriesSearch } from '../../api/api';
@@ -74,7 +76,6 @@ class Search extends React.Component {
 
   render() {
     const { query, results, error } = this.state;
-
     return (
       <React.Fragment>
         <div className={styles.container}>
@@ -90,13 +91,26 @@ class Search extends React.Component {
             <FaSearch size={28} />
           </div>
         </div>
-        {error && <div className={styles.results}>{error}</div>}
-        {results &&
-          results.map(({ name: country, flag }) => (
-            <div key={country} className={styles.results}>
-              {country}
+        {error && <div className={styles.error}>{error}</div>}
+        {results && (
+          <div className={styles.container}>
+            <div className={styles.grid}>
+              {results.map(({ name: country, flag, alpha2Code }) => (
+                <div key={country} className={styles.results}>
+                  <Link
+                    to={`/${getName(alpha2Code)}`}
+                    className={styles.countryLink}
+                  >
+                    <div>
+                      <img src={flag} alt={country} />
+                      <h2>{country}</h2>
+                    </div>
+                  </Link>
+                </div>
+              ))}
             </div>
-          ))}
+          </div>
+        )}
       </React.Fragment>
     );
   }
