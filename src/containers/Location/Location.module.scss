@@ -32,7 +32,7 @@
       @include country-info();
     }
 
-    h2 ul {
+    .list ul {
       padding-left: 3em;
     }
   }
@@ -50,4 +50,40 @@
 .error {
   text-align: center;
   margin-top: 2em;
+}
+
+@media (max-width: 1280px) {
+  .main {
+    flex-direction: column-reverse;
+    align-items: center;
+    text-align: center;
+    section {
+      h1 {
+        text-align: center;
+      }
+      .h2 {
+        justify-content: center;
+      }
+      .list {
+        div {
+          justify-content: center;
+        }
+        ul {
+          padding: 0em;
+          list-style: none;
+          li {
+            padding: 0;
+          }
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 600px) {
+  .main {
+    img {
+      width: 100%;
+    }
+  }
 }

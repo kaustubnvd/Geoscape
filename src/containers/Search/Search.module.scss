@@ -6,7 +6,7 @@
     justify-content: space-between;
     align-items: center;
     width: 80%;
-    background-color: #FFF;
+    background-color: #fff;
     padding: 1.5em;
     border: 2px solid rgba(77, 130, 209, 0.13);
     border-radius: 50px;
@@ -55,4 +55,23 @@
   margin: 0 auto;
   margin-top: 2em;
   margin-bottom: 10em;
+}
+
+@media (max-width: 515px) {
+  .container {
+    .searchBar {
+      width: 90%;
+    }
+  }
+}
+
+@media (max-width: 420px) {
+  .container {
+    .searchBar {
+      width: 100%;
+    }
+  }
+  .grid {
+    width: auto;
+  }
 }

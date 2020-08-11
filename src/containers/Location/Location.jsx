@@ -53,7 +53,7 @@ class Location extends React.Component {
     return (
       <main className={styles.main}>
         <section>
-          <h1>{country}</h1>
+          <h1>{country.charAt(0).toUpperCase() + country.slice(1)}</h1>
           <h2 className={styles.h2}>
             <FaMapMarkerAlt color="#4d82d1" size={22} />
             <span>Capital: {capital}</span>
