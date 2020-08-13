@@ -18,3 +18,18 @@
 .svg-map__location[aria-checked='true'] {
   fill: #f4bc44;
 }
+
+.tooltip-container {
+  position: relative;
+}
+
+.tooltip {
+  display: block;
+  position: fixed;
+  color: #000;
+  visibility: visible;
+  font-size: 1.5rem;
+  font-weight: 700;
+  padding: 5px 20px;
+  box-shadow: 0 8px 10px rgba(0, 0, 0, 0.1);
+}
