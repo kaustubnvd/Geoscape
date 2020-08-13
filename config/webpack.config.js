@@ -1,6 +1,7 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
+const CopyPlugin = require('copy-webpack-plugin');
 
 module.exports = {
   entry: ['babel-polyfill', './src/index.js'],
@@ -18,7 +19,7 @@ module.exports = {
               importLoaders: 1,
             },
           },
-          'sass-loader'
+          'sass-loader',
         ],
         include: /\.module\.scss$/,
       },
@@ -32,7 +33,9 @@ module.exports = {
   plugins: [
     new HtmlWebpackPlugin({
       template: './src/index.html',
+      favicon: './src/images/favicon.ico'
     }),
+    new CopyPlugin({patterns: [{ from: '_redirects' }]}),
     new CleanWebpackPlugin(),
   ],
   devServer: {
@@ -41,7 +44,7 @@ module.exports = {
   output: {
     path: path.resolve(__dirname, '..', 'dist'),
     filename: 'bundle.[contentHash].js',
-    publicPath: '/'
+    publicPath: '/',
   },
-  mode: process.env.NODE_ENV === 'production' ? 'production': 'development',
+  mode: process.env.NODE_ENV === 'production' ? 'production' : 'development',
 };
